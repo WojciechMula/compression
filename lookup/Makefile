@@ -14,5 +14,6 @@ decompress: decompress.cpp decompressor.hpp $(DEPS)
 	$(CC) $(FLAGS) $(INCLUDE) decompress.cpp -o decompress
 
 clean:
-	rm -rf compress
-	rm -rf decompress
+	rm -f compress
+	rm -f decompress
+	rm -f *.out
