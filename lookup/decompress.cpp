@@ -12,7 +12,7 @@ void file_decompressor(FILE* input, FILE* output) {
 
     try {
         comp.decode(writer);
-    } catch (stop&) {
+    } catch (bitstream::reader::end_of_stream&) {
         // ok
     }
 }

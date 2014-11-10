@@ -4,7 +4,6 @@ def bytes(bits):
     return (bits + 7)/8
 
 gram_size = [5, 4, 3, 2]
-gram_size = [5, 4, 3, 2]
 
 def scan_trigrams(data):
     
@@ -24,20 +23,13 @@ def encode(data, bits, lookup):
     l = Local()
     l.size = 0
     
-    def save(start, end):
-        #stderr.write(data[start:end])
-        pass
-
     def emit_uncompressed(start, end):
         n = end - start + 1
-        save(start, end + 1)
         if n == 0:
             return 0
         
         raw_size  = bits * n
         copy_size = bits + (n+1)*8
-        #if copy_size < raw_size:
-        #    print "xxx", copy_size, raw_size
 
         return min(raw_size, copy_size)
 
@@ -56,7 +48,6 @@ def encode(data, bits, lookup):
         if gram is not None:
             l.size += emit_uncompressed(last, i - 1)
             l.size += bits
-            save(i, i + len(gram))
             i += len(gram)
             last = i
             continue

@@ -44,6 +44,9 @@ namespace bitstream {
         virtual uint8_t load_byte() = 0;
 
     public:
+        class end_of_stream {};
+
+    public:
         reader() : offset(8) {}
 
         bool     bit();

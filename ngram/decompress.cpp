@@ -11,7 +11,7 @@ void decompress(FILE* input, FILE* output) {
 
     try {
         comp.decompress(reader, writer);
-    } catch (stop&) {
+    } catch (bitstream::reader::end_of_stream&) {
         // ok
     }
 }

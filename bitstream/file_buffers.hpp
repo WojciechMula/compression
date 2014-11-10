@@ -5,8 +5,6 @@
 #include <memory>
 #include <cstdio>
 
-class stop {};
-
 
 class file_reader final: public bitstream::reader {
 
@@ -32,7 +30,7 @@ protected:
         if (offset == count) {
             count = fread(buffer.get(), 1, capacity, file);
             if (count == 0) {
-                throw stop();
+                throw end_of_stream();
             }
 
             offset = 0;

@@ -17,7 +17,6 @@ namespace ngramcompression {
         void decompress(bitstream::reader& reader, bitstream::writer& writer) {
 
             const std::size_t bits = reader.get16();
-            printf("bits = %d\n", bits);
 
             auto map = load_grams(reader);
 
@@ -45,11 +44,8 @@ namespace ngramcompression {
             map_type map;
 
             const std::size_t count2 = reader.get16();
-            printf("count2 = %d\n", count2);
             const std::size_t count3 = reader.get16();
-            printf("count3 = %d\n", count3);
             const std::size_t count4 = reader.get16();
-            printf("count4 = %d\n", count4);
 
             std::size_t code = 256;
 
